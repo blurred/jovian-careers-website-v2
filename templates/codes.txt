@@ -27,3 +27,13 @@
         margin: 0 auto;
       }
     </style>
+
+
+with engine.connect() as conn:
+  result = conn.execute(text("select * from jobs"))
+
+  result_dicts = result.mappings().all()
+  jobs = []
+  for row in result_dicts:
+    jobs.append(row)
+  print(jobs)
